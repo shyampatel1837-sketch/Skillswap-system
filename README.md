@@ -24,7 +24,7 @@ SkillSwap is a simple web platform where users can share and exchange skills wit
    `http://localhost/skillswap`
 
 ## Live Demo
-(http://skill-swap.great-site.net/)
+(https://skillswap-system.infinityfree.me/dashboard.php)
 
 ## Database
 The database file is included in the project as `skillswap.sql`.
