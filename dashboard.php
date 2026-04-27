@@ -12,7 +12,7 @@ if(!isset($_SESSION['user'])){
 
 $email = $_SESSION['user'];
 
-// Fetch user details
+
 $user_query = "SELECT * FROM users WHERE email='$email'";
 $user_result = mysqli_query($conn, $user_query);
 $user = mysqli_fetch_assoc($user_result);
@@ -22,12 +22,12 @@ $user_id = $user['id'];
 $username = $user['name'] ?? "User";
 $profile_pic = $user['profile_image'] ?? "default.png";
 
-// ✅ Count Skills
+//skill count
 $skill_query = "SELECT COUNT(*) as total FROM skills WHERE user_id='$user_id'";
 $skill_result = mysqli_query($conn, $skill_query);
 $skills = mysqli_fetch_assoc($skill_result)['total'] ?? 0;
 
-// ✅ Count Requests
+// Count Requests
 $request_query = "SELECT COUNT(*) as total FROM requests WHERE receiver_id='$user_id'";
 $request_result = mysqli_query($conn, $request_query);
 $requests = mysqli_fetch_assoc($request_result)['total'] ?? 0;
@@ -53,7 +53,6 @@ $requests = mysqli_fetch_assoc($request_result)['total'] ?? 0;
     cursor:pointer;
 }
 
-/* Popup */
 #popup{
     position:fixed;
     top:20px;
@@ -85,14 +84,14 @@ $requests = mysqli_fetch_assoc($request_result)['total'] ?? 0;
 <li><a href="profile.php"><i class="fa-solid fa-user"></i> Profile</a></li>
 <li><a href="requests.php"><i class="fa-solid fa-envelope"></i> Requests</a></li>
 
-<!-- ✅ CHAT -->
+<!-- CHAT -->
 <li>
     <a href="chat.php">
         <i class="fa-solid fa-comments"></i> Chat
     </a>
 </li>
 
-<!-- ✅ NOTIFICATIONS PAGE -->
+<!-- NOTIFICATIONS PAGE -->
 <li>
     <a href="notifications.php">
         <i class="fa-solid fa-bell"></i> Notifications
@@ -155,10 +154,10 @@ $requests = mysqli_fetch_assoc($request_result)['total'] ?? 0;
 
 </div>
 
-<!-- ✅ POPUP -->
+<!--POPUP -->
 <div id="popup"></div>
 
-<!-- ✅ JAVASCRIPT -->
+<!--JAVASCRIPT -->
 <script>
 function checkNotification(){
     fetch('php/fetch_notification.php')
