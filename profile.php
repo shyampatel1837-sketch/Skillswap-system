@@ -42,18 +42,18 @@ if(!$profile){
     exit();
 }
 
-// Skills
+
 $skills_query = "SELECT * FROM skills WHERE user_id='$view_id'";
 $skills_result = mysqli_query($conn, $skills_query);
 $skills_count = mysqli_num_rows($skills_result);
 
-// Requests count
+
 $request_query = "SELECT COUNT(*) as total FROM requests WHERE receiver_id='$view_id'";
 $request_result = mysqli_query($conn, $request_query);
 $request_data = mysqli_fetch_assoc($request_result);
 $request_count = $request_data['total'];
 
-// Profile views
+
 $views = isset($profile['profile_views']) ? $profile['profile_views'] : 0;
 ?>
 
@@ -72,14 +72,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <div class="profile-page">
 <div style="height:120px; background: linear-gradient(90deg,#4f46e5,#3b82f6); border-radius:15px;"></div>
 
-<!-- PROFILE HEADER -->
 <div class="profile-header">
 <img src="uploads/<?php echo $profile['profile_image'] ?? 'default.png'; ?>" class="profile-avatar">
 <h2><?php echo $profile['name']; ?></h2>
 <p class="profile-email"><?php echo $profile['email']; ?></p>
 </div>
 
-<!-- STATS -->
+
 <div class="profile-stats">
 <div class="stat">
 <h3><?php echo $skills_count; ?></h3>
@@ -97,7 +96,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 </div>
 
-<!-- BUTTONS -->
+
 <?php if ($view_id == $user_id) { ?>
 <div class="profile-buttons">
 <a href="edit-profile.php" class="btn-edit">
@@ -110,7 +109,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 <?php } ?>
 
-<!-- DASHBOARD -->
 <div class="dashboard-box">
 <h3>Professional Dashboard</h3>
 <p>
@@ -119,7 +117,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </p>
 </div>
 
-<!-- SKILLS -->
 <div class="skills-section">
 <h2>My Skills</h2>
 
@@ -141,7 +138,7 @@ if(mysqli_num_rows($skills_result) > 0){
 
     <p><?php echo $skill['description'] ?? ''; ?></p>
 
-    <!-- ✅ SHOW ONLY FOR OTHER USERS -->
+    <!-- SHOW ONLY FOR OTHER USERS -->
     <?php if($view_id != $user_id){ ?>
         <form method="POST" action="php/send_request.php">
             <input type="hidden" name="skill_id" value="<?php echo $skill['id']; ?>">
