@@ -9,7 +9,7 @@ if (!isset($_SESSION['user'])) {
 
 $email = $_SESSION['user'];
 
-// Get logged-in user ID
+
 $user_query = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
 $user = mysqli_fetch_assoc($user_query);
 $user_id = $user['id'];
@@ -59,7 +59,7 @@ echo "
 <p>Status: <b>".$row['status']."</b></p>
 ";
 
-// ✅ Show Accept/Reject only if pending
+// Show Accept/Reject only if pending
 if($row['status'] == 'pending'){
     echo "
     <form method='POST' action='php/update_request.php'>
@@ -70,7 +70,6 @@ if($row['status'] == 'pending'){
     ";
 }
 
-// ✅ ADD THIS BLOCK (Start Chat button)
 if($row['status'] == 'accepted'){
     echo "
     <a href='chat.php?user_id=".$row['sender_id']."' class='btn'>
