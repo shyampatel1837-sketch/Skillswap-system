@@ -8,7 +8,7 @@ if(!isset($_GET['token'])){
 
 $token = $_GET['token'];
 
-// Check token in database
+
 $result = mysqli_query($conn, "SELECT * FROM users WHERE reset_token='$token'");
 $user = mysqli_fetch_assoc($result);
 
@@ -17,7 +17,7 @@ if(!$user){
 exit();
 }
 
-// ✅ CHECK EXPIRY
+// CHECK EXPIRY
 if(strtotime($user['token_expire']) < time()){
     echo "<h2 style='text-align:center;color:red;'>Token expired. Please request again.</h2>";
 exit();
