@@ -9,7 +9,7 @@
 
 <body>
 
-<!-- Navigation Bar -->
+
 <nav class="navbar">
     <div class="logo">SkillSwap</div>
     <ul class="nav-links">
@@ -19,7 +19,6 @@
     </ul>
 </nav>
 
-<!-- Login Section -->
 <section class="register-section">
 
     <div class="register-card">
