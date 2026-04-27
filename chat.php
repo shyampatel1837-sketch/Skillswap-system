@@ -23,7 +23,7 @@ $user_id = $user['id'];
     height:90vh;
 }
 
-/* LEFT */
+
 .chat-list{
     width:30%;
     background:#1f1f1f;
@@ -114,7 +114,7 @@ Select a user to start chat
 
 <div class="send-box">
 
-<!-- ➕ FILE -->
+<!-- FILE -->
 <label for="fileInput" style="cursor:pointer;font-size:22px;padding:10px;">➕</label>
 <input type="file" id="fileInput" style="display:none;">
 
@@ -149,7 +149,7 @@ function loadMessages(){
     });
 }
 
-// SEND MSG + FILE ✅ (STEP 3 FIX)
+
 function sendMsg(){
 
     if(receiver_id == 0){
@@ -178,7 +178,6 @@ function sendMsg(){
     });
 }
 
-// ENTER KEY ✅
 document.getElementById("msg").addEventListener("keypress", function(e){
     if(e.key === "Enter"){
         e.preventDefault();
