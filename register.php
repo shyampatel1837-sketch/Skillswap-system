@@ -10,8 +10,6 @@
 
 <body>
 
-<!-- Navigation Bar -->
-
 <nav class="navbar">
     <div class="logo">SkillSwap</div>
     <ul class="nav-links">
@@ -21,7 +19,6 @@
     </ul>
 </nav>
 
-<!-- Register Section -->
 
 <section class="register-section">
 
