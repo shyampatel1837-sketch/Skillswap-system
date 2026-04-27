@@ -12,7 +12,6 @@ if (!isset($_SESSION['user'])) {
 
 $email = $_SESSION['user'];
 
-// Get user data
 $query = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
@@ -23,7 +22,7 @@ if(isset($_POST['update'])){
     $name = $_POST['name'];
     $new_email = $_POST['email'];
 
-    // IMAGE UPLOAD
+    
     $image_name = isset($user['profile_image']) ? $user['profile_image'] : 'default.png';
 
     if(!empty($_FILES['image']['name'])){
