@@ -130,6 +130,12 @@ $requests = mysqli_fetch_assoc($request_result)['total'] ?? 0;
 </div>
 
 <div class="stat-card">
+<i class="fa-solid fa-code"></i>
+<h3><?php echo $skills; ?></h3>
+<p>Added</p>
+</div>
+
+<div class="stat-card">
 <i class="fa-solid fa-envelope"></i>
 <h3><a href="requests.php"><?php echo $requests; ?></a></h3>
 <p>Requests</p>
